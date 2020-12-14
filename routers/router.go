@@ -3,7 +3,6 @@ package routers
 import (
 	"github.com/astaxie/beego"
 	"github.com/sjfbjs/sdrms/controllers"
-	//"sdrms/controllers"
 )
 
 func init() {
