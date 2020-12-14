@@ -2,7 +2,8 @@ package routers
 
 import (
 	"github.com/astaxie/beego"
-	"github.com/lhtzbj12/sdrms/controllers"
+	//"github.com/lhtzbj12/sdrms/controllers"
+	"sdrms/controllers"
 )
 
 func init() {
