@@ -2,8 +2,8 @@ package routers
 
 import (
 	"github.com/astaxie/beego"
-	//"github.com/lhtzbj12/sdrms/controllers"
-	"sdrms/controllers"
+	"github.com/sjfbjs/sdrms/controllers"
+	//"sdrms/controllers"
 )
 
 func init() {
@@ -12,10 +12,12 @@ func init() {
 		beego.NSRouter("/index", &controllers.CourseController{}, "*:Index"),
 	)
 	beego.AddNamespace(ns)
-	//v1ns := beego.NewNamespace("v1",
-	//	beego.NSRouter("/index", &controllers.TestController{}),
-	//	)
-	//beego.AddNamespace(v1ns)
+	v1ns := beego.NewNamespace("v1",
+		beego.NSRouter("/index", &controllers.TestController{}, "*:Index"),
+	)
+	beego.AddNamespace(v1ns)
+	//测试路由
+	beego.Router("/course/myindex", &controllers.TestController{})
 	//课程路由
 	beego.Router("/course/index", &controllers.CourseController{}, "*:Index")
 	beego.Router("/course/datagrid", &controllers.CourseController{}, "Get,Post:DataGrid")
