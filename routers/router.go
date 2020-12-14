@@ -7,10 +7,10 @@ import (
 
 func init() {
 	//测试路由?
-	beego.Router("/course/myindex", &controllers.TestController{})
+	beego.Router("/course/myindex", &controllers.TestController{}, "*:Index")
 	////基础路由，可用namespace整改
 	ns := beego.NewNamespace("/sjf",
-		beego.NSRouter("/index", &controllers.CourseController{}, "*:Index"),
+		beego.NSRouter("/index", &controllers.TestController{}, "*:Index"),
 	)
 	beego.AddNamespace(ns)
 	v1ns := beego.NewNamespace("v1",
@@ -20,7 +20,7 @@ func init() {
 
 	//课程路由
 	beego.Router("/course/index", &controllers.CourseController{}, "*:Index")
-	beego.Router("/course/new", &controllers.CourseController{}, "*:New")
+	beego.Router("/course/add", &controllers.CourseController{}, "*:Add")
 	beego.Router("/course/datagrid", &controllers.CourseController{}, "Get,Post:DataGrid")
 	beego.Router("/course/edit/?:id", &controllers.CourseController{}, "Get,Post:Edit")
 	beego.Router("/course/delete", &controllers.CourseController{}, "Post:Delete")
