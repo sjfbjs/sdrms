@@ -1,13 +1,16 @@
 package routers
 
 import (
-	"github.com/lhtzbj12/sdrms/controllers"
-
 	"github.com/astaxie/beego"
+	"github.com/lhtzbj12/sdrms/controllers"
 )
 
 func init() {
-
+	//基础路由，可用namespace整改
+	ns := beego.NewNamespace("/sjf",
+		beego.NSRouter("/index", &controllers.CourseController{}, "*:Index"),
+	)
+	beego.AddNamespace(ns)
 	//课程路由
 	beego.Router("/course/index", &controllers.CourseController{}, "*:Index")
 	beego.Router("/course/datagrid", &controllers.CourseController{}, "Get,Post:DataGrid")
@@ -59,7 +62,37 @@ func init() {
 
 	beego.Router("/home/404", &controllers.HomeController{}, "*:Page404")
 	beego.Router("/home/error/?:error", &controllers.HomeController{}, "*:Error")
-
 	beego.Router("/", &controllers.HomeController{}, "*:Index")
+
+	//ns :=
+	//	web.NewNamespace("/v1",
+	//		web.NSCond(func(ctx *context.Context) bool {
+	//			if ctx.Input.Domain() == "api.beego.me" {
+	//				return true
+	//			}
+	//			return false
+	//		}),
+	//		web.NSBefore(auth),
+	//		web.NSGet("/notallowed", func(ctx *context.Context) {
+	//			ctx.Output.Body([]byte("notAllowed"))
+	//		}),
+	//		web.NSRouter("/version", &AdminController{}, "get:ShowAPIVersion"),
+	//		web.NSRouter("/changepassword", &UserController{}),
+	//		web.NSNamespace("/shop",
+	//			web.NSBefore(sentry),
+	//			web.NSGet("/:id", func(ctx *context.Context) {
+	//				ctx.Output.Body([]byte("notAllowed"))
+	//			}),
+	//		),
+	//		web.NSNamespace("/cms",
+	//			web.NSInclude(
+	//				&controllers.MainController{},
+	//				&controllers.CMSController{},
+	//				&controllers.BlockController{},
+	//			),
+	//		),
+	//	)
+	////注册 namespace
+	//web.AddNamespace(ns)
 
 }

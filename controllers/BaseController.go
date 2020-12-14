@@ -84,6 +84,7 @@ func (c *BaseController) checkAuthor(ignores ...string) {
 	//如果Action在忽略列表里，则直接通用
 	for _, ignore := range ignores {
 		if ignore == c.actionName {
+			fmt.Println(c.actionName)
 			return
 		}
 	}
