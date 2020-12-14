@@ -84,6 +84,31 @@ func (c *CourseController) Edit() {
 	c.Data["activeSidebarUrl"] = c.URLFor("CourseController.Index")
 }
 
+//Edit 添加、编辑课程界面
+func (c *CourseController) Add() {
+	if c.Ctx.Request.Method == "POST" {
+		c.Save()
+	}
+	Id, _ := c.GetInt(":id", 0)
+	m := models.Course{Id: Id, Seq: 100, StartTime: time.Now(), EndTime: time.Now()}
+	if Id > 0 {
+		o := orm.NewOrm()
+		err := o.Read(&m)
+		if err != nil {
+			c.pageError("数据无效，请刷新后重试")
+		}
+	}
+	c.Data["hasImg"] = len(m.Img) > 0
+	c.Data["m"] = m
+	c.setTpl("course/edit.html", "shared/layout_page.html")
+	c.LayoutSections = make(map[string]string)
+	c.LayoutSections["headcssjs"] = "course/edit_headcssjs.html"
+	c.LayoutSections["footerjs"] = "course/edit_footerjs.html"
+
+	//将页面左边菜单的某项激活
+	c.Data["activeSidebarUrl"] = c.URLFor("CourseController.Index")
+}
+
 //Save 添加、编辑页面 保存
 func (c *CourseController) Save() {
 	var err error
