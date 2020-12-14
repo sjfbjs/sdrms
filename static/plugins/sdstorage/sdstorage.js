@@ -2,7 +2,7 @@
  * Copyright (C) Corporation. All rights reserved.
  *
  * Author      :  lihaitao
- * Email        : lhtzbj12@126.com
+ * Email        : sjfbjs@126.com
  * Create Date  : 2017-10-18
  * Description  : localstorage 操作工具 、支持过期处理、Key批量删除已过期等
  * Version      : V1.0.0

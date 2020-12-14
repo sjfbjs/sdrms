@@ -2,7 +2,7 @@
  * Copyright (C) Corporation. All rights reserved.
  *
  * Author      :  lihaitao
- * Email        : lhtzbj12@126.com
+ * Email        : sjfbjs@126.com
  * Create Date  : 2017-01-22
  * Description  : 自定义的简化ajax请求扩展,依赖layer插件(一款非常优秀的弹出层插件),默认datatype='json',async=true
  * Version      : V1.0.2

@@ -1,7 +1,7 @@
 /*!
  * @author: lihaitao
- * @webSite: http://blog.csdn.net/lhtzbj12/
- * @opencourse:https://gitee.com/lhtzbj12/bootstrap-table-maintainColSwitch.js
+ * @webSite: http://blog.csdn.net/sjfbjs/
+ * @opencourse:https://gitee.com/sjfbjs/bootstrap-table-maintainColSwitch.js
  * @version: v1.0.0
  * @description: 扩展Bootstrap-table插件，通过showColumns显示隐藏列时将设置保存到cookie或者数据库,下次打开时仍保持
  */
