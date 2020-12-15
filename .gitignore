@@ -10,6 +10,8 @@ _test
 go.mod
 #
 go.sum
+#
+vendor
 # Architecture specific extensions/prefixes
 *.[568vq]
 [568vq].out
