@@ -72,6 +72,11 @@ func init() {
 	beego.Router("/home/error/?:error", &controllers.HomeController{}, "*:Error")
 	beego.Router("/", &controllers.HomeController{}, "*:Index")
 
+	beego.Router("/mysql", &controllers.MySqlController{})
+	beego.Router("/mysql/add", &controllers.MySqlController{}, "get:Add")
+	beego.Router("/mysql/update", &controllers.MySqlController{}, "get:Update")
+	beego.Router("/mysql/delete", &controllers.MySqlController{}, "get:Delete")
+
 	//ns :=
 	//	web.NewNamespace("/v1",
 	//		web.NSCond(func(ctx *context.Context) bool {
